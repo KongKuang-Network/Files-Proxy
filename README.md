@@ -82,5 +82,42 @@ https://files-proxy.your-subdomain.workers.dev/https://example.com/files/documen
 2. 检查Cloudflare Dashboard中的日志
 3. 确保您的URL格式正确
 
-# 目前项目作者学业繁忙
-6月24日进行小升初毕业考，Node.js以及Docker将在暑假期间上线，喜欢的话给个Star吧！
+# 文件代理Docker快速部署
+## 简介 
+Docker 是一个开源的应用容器引擎，它允许开发者将应用及其依赖打包到一个轻量级、可移植的容器中。当然文件代理我们也有Docker版，它部署起来更方便。
+
+## 前提条件
+1.一台服务器，由于是文件代理，建议国外服务器
+2.已安装Docker环境
+3.具有网络环境
+## 镜像地址
+DockerHub：
+```shell
+xiaozengraw/files-proxy
+```
+阿里：
+```shell
+crpi-g4myt05d4c7dw7wd.cn-hangzhou.personal.cr.aliyuncs.com/kk_nework/files-proxy
+```
+>Tip:服务器在外国，基本DockerHub都能成功拉取。
+## 部署方法
+### 拉取镜像（可省略）
+```shell
+docker pull xiaozengraw/files-proxy
+```
+或
+```shell
+docker pull crpi-g4myt05d4c7dw7wd.cn-hangzhou.personal.cr.aliyuncs.com/kk_nework/files-proxy
+```
+~~直接Docker run 会自动拉取的~~
+### 运行Docker容器
+执行这条命令，会随机给Docker命名
+```shell
+docker run -p 8563:8563 xiaozengraw/files-proxy
+```
+如果需要自定义Docker名称
+```shell
+docker run -p 8563:8563 -name <容器名称> xiaozengraw/files-proxy
+```
+>Tip:拉取较慢可将“xiaozengraw/files-proxy”换成“crpi-g4myt05d4c7dw7wd.cn-hangzhou.personal.cr.aliyuncs.com/kk_nework/files-proxy”
+
